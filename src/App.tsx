@@ -1,11 +1,56 @@
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
-import OrganizationsPage from "./pages/OrganizationsPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import BaseServerTable from "./components/BaseComponents/BaseServerTable";
+
+const queryClient = new QueryClient();
+
+const organizations = {
+  headers: [
+    { title: "id", value: "id" },
+    { title: "Наименование", value: "short_name" },
+    { title: "Статус активности", value: "is_active" },
+  ],
+};
 
 function App() {
   return (
-    <main>
-      <OrganizationsPage />
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ul>
+          <li>
+            <Link to="organizations">organizations</Link>
+          </li>
+          <li>
+            <Link to="promos">promos</Link>
+          </li>
+        </ul>
+        <Routes>
+          <Route
+            path="organizations"
+            element={
+              <BaseServerTable
+                apiKey="organizations"
+                key={1}
+                title="Организации"
+                headers={organizations.headers}
+              />
+            }
+          />
+          <Route
+            path="promos"
+            element={
+              <BaseServerTable
+                key={2}
+                apiKey="promos"
+                title="Промокоды"
+                headers={organizations.headers}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 
