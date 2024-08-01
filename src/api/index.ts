@@ -1,8 +1,9 @@
 import axios, { AxiosResponse } from "axios";
-import { IBaseApiListQuery, IBaseApiListResponse } from "./types";
-import { IOrganizationItem } from "../types";
+import { IBaseApiListQuery, IBaseApiListResponse } from "@api/types";
+import { IOrganizationItem } from "@app_types/index";
 
 const baseInstance = axios.create({
+  // TODO: вынести в .env
   baseURL: "https://developer3.elros.info/api/v1",
   withCredentials: true,
   headers: {

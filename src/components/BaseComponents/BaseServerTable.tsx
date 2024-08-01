@@ -1,8 +1,9 @@
-import { useQuery } from "@tanstack/react-query"; // useQueryClient
-import api from "../../api";
-import { IOrganizationItem, IPagination } from "../../types";
 import { useState } from "react";
-import BasePagination from "./BasePagination";
+import { useQuery } from "@tanstack/react-query"; // useQueryClient
+
+import api from "@api/index";
+import { IOrganizationItem, IPagination } from "@app_types/index";
+import BasePagination from "@base_components/BasePagination";
 
 interface ITableHeader {
   title: string;
@@ -17,6 +18,7 @@ interface IProps {
 }
 
 export default function BaseServerTable({ headers, apiKey, title }: IProps) {
+  // TODO: useReducer without useState
   const [params, setParams] = useState({
     paginate: {
       page: 1,
@@ -50,7 +52,7 @@ export default function BaseServerTable({ headers, apiKey, title }: IProps) {
 
   const itemsRows = items.map((i) => (
     <tr key={i.id}>
-      {headers.map((h) => {
+      {headers.map((h, idx) => {
         const value = i[h.value];
 
         let textContent = value as string | boolean | number;
@@ -58,7 +60,7 @@ export default function BaseServerTable({ headers, apiKey, title }: IProps) {
         else if (typeof value === "boolean")
           textContent = value ? "Активен" : "Неактивен";
 
-        return <td>{textContent}</td>;
+        return <td key={idx}>{textContent}</td>;
       })}
     </tr>
   ));
