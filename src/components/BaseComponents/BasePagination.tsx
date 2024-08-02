@@ -1,4 +1,4 @@
-import { IPagination } from "../../types";
+import { IPagination } from "@app_types/index";
 
 interface IProps extends IPagination {
   count: number;
