@@ -1,4 +1,4 @@
-import { IPagination } from "@app_types/index";
+import { IPagination } from "@app_types/index.ts";
 
 interface IProps extends IPagination {
   count: number;

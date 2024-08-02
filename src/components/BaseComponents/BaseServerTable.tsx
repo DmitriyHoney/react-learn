@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query"; // useQueryClient
 
-import api from "@api/index";
-import { IOrganizationItem, IPagination } from "@app_types/index";
+import api from "@api/index.ts";
+import { IOrganizationItem, IPagination } from "@app_types/index.ts";
 import BasePagination from "@base_components/BasePagination";
 
 interface ITableHeader {

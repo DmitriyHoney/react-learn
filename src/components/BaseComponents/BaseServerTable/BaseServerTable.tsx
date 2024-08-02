@@ -1,8 +1,8 @@
-import { useQuery } from "@tanstack/react-query"; // useQueryClient
-import api from "@/api";
-import { IOrganizationItem, IPagination } from "@/types";
 import { ReducerState, useReducer } from "react";
-import BasePagination from "components/BaseComponents/BasePagination.tsx";
+import { useQuery } from "@tanstack/react-query"; // useQueryClient
+import api from "@api/index.ts";
+import { IOrganizationItem, IPagination } from "@app_types/index.ts";
+import BasePagination from "@base_components/BasePagination.tsx";
 import baseServerTableReducer, {CountActionKind, initialBaseServerState, IState} from "./BaseServerTableReducer.ts";
 
 
