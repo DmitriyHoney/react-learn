@@ -1,7 +1,7 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import BaseServerTable from "./components/BaseComponents/BaseServerTable";
+import BaseServerTable from "./components/BaseComponents/BaseServerTable/BaseServerTable.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +28,7 @@ function App() {
         <Routes>
           <Route
             path="organizations"
+            key={1}
             element={
               <BaseServerTable
                 apiKey="organizations"
@@ -39,6 +40,7 @@ function App() {
           />
           <Route
             path="promos"
+            key={2}
             element={
               <BaseServerTable
                 key={2}
