@@ -1,7 +1,7 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import BaseServerTable from "@/src/components/BaseComponents/BaseServerTable/BaseServerTable";
+import BaseServerTable from "@base_components/BaseServerTable/BaseServerTable";
 
 import "./App.css";
 
